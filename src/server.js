@@ -12,10 +12,14 @@ const hostName = process.env.HOST_NAME || "";
 //config template engine
 configViewEngine(app);
 
-//simple query
-connection.query("select * from Users u", function (err, results, fields) {
-  console.log(results);
-});
+// //simple query
+// connection.query("select * from Users u", function (err, results, fields) {
+//   console.log(results);
+// });
+
+//config req.body
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 //khai bao route
 app.use("/", webRoutes);
